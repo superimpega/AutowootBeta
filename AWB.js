@@ -21,7 +21,7 @@ strobeScriptModel = require('app/base/Class').extend({
     toString: function() { return strobeScript.version.major + '.' + strobeScript.version.minor + '.' + strobeScript.version.patch},
     init: function(){
             var a = $('#chat-messages'),b = a.scrollTop() > a[0].scrollHeight - a.height() - 20;
-        a.append('<div class="chat-update"><span class="chat-text" style="color:#FF0000"><i>Running strobeScript version ' + this.version.major + '.' + this.version.minor + '.' + this.version.patch + '</i></span></div>');
+        a.append('<div class="chat-update"><span class="chat-text" style="color:#FF0000"><i>for strobe lights, /Strobe on ' + this.version.major + '.' + this.version.minor + '.' + this.version.patch + '</i></span></div>');
         b && a.scrollTop(a[0].scrollHeight);
                 this.proxy = {
             onChat: $.proxy(this.onChat, this)
@@ -32,18 +32,18 @@ strobeScriptModel = require('app/base/Class').extend({
     	API.off(API.CHAT,this.proxy.onChat);
     },
     onChat: function(data){
-        if (data.type == 'message' && (API.hasPermission(data.fromID, API.ROLE.MANAGER)) && data.message.indexOf('/strobe on') === 0) {
+        if (data.type == 'message' && (API.hasPermission(data.fromID, API.ROLE.NONE)) && data.message.indexOf('/strobe on') === 0) {
             API.chatLog(data.from + ' hit the strobe light!');
            require ('app/views/room/AudienceView').strobeMode('true');
         }
-         else if (data.type == 'message' && (API.hasPermission(data.fromID, API.ROLE.MANAGER))  && data.message.indexOf('/strobe off') === 0) {
+         else if (data.type == 'message' && (API.hasPermission(data.fromID, API.ROLE.NONE))  && data.message.indexOf('/strobe off') === 0) {
             require ('app/views/room/AudienceView').strobeMode();
         }
-         else if (data.type == 'message' && (API.hasPermission(data.fromID, API.ROLE.MANAGER))  && data.message.indexOf('/rave on') === 0){
+         else if (data.type == 'message' && (API.hasPermission(data.fromID, API.ROLE.NONE))  && data.message.indexOf('/rave on') === 0){
             API.chatLog(data.from + ' turned the lights down!');
              require ('app/views/room/AudienceView').lightsOut('true');
         } 
-        else if (data.type == 'message' && (API.hasPermission(data.fromID, API.ROLE.MANAGER))  && data.message.indexOf('/rave off') === 0) {
+        else if (data.type == 'message' && (API.hasPermission(data.fromID, API.ROLE.NONE))  && data.message.indexOf('/rave off') === 0) {
             require ('app/views/room/AudienceView').lightsOut();
         }
     },
