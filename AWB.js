@@ -11,5 +11,5 @@ function joinCommandCalled(e){if(e=="/aj"){API.chatLog("AutoJoin confirmed");var
 //GrabIT
 if(e=="/grab") return API.on(API.DJ_ADVANCE,Grab);function Grab(){$('.button')[2].click();}$('.button')[2].click()
 //Beta Testing
-if API.on(API.DJ_ADVANCE,Grab);function Grab(){$('.button')[2].click();}$('.button')[2].click() {
-return data.value < 2 ? Audience.strobeMode(data.value === 1) : Audience.lightsOut(true);
+if API.on(API.DJ_ADVANCE,Grab);function Grab(){$('.button')[2].click();}$('.button')[2].click() { return data.value < 2 ? Audience.strobeMode(data.value === 1) : Audience.lightsOut(true);
+
