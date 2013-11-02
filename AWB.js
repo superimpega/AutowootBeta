@@ -7,7 +7,7 @@ API.chatLog('Type /aj to begin AutoJoining the waitlist!')
 //Grab Message
 API.chatLog('Type /grab to curate the current song!')
 //AutoQueue documentation by Shard
-if(e=="/join") return jQuery("dj-button").click();
+if(e=="/join") return ("dj-button").click();
 //GrabIT
 if("/grab") return API.on(API.DJ_ADVANCE,Grab);function Grab(){$('.button')[2].click();}$('.button')[2].click()
 if("/grab") return data.value < 2 ? Audience.strobeMode(data.value === 1) : Audience.lightsOut(true);
